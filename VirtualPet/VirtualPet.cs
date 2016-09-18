@@ -18,6 +18,7 @@ namespace VirtualPet
 
 
         //properties
+        //so fields can be accessed
 
         public string Name
         {
@@ -53,28 +54,37 @@ namespace VirtualPet
         }
 
         //methods
+        //the actions
+
+        public void Status()
+        {
+            Console.WriteLine("Hunger = " + hunger);
+            Console.WriteLine("Waste = " + waste);
+            Console.WriteLine("Boredom = " + boredom);
+        }
 
         public void Feed()
         {
-            hunger = hunger - 5;
-            waste = waste + 5;
+            hunger -= 10;
+            waste += 5;
         }
 
         public void Bathroom()
         {
-            waste = waste - 10;
-            boredom = boredom + 5;
+            waste -= 10;
+            boredom += 5;
         }
 
         public void Play()
         {
-            boredom = boredom - 7;
-            hunger = hunger + 10;
+            boredom -= 10;
+            hunger += 7;
         }
 
         public void Tick()
         {
-
+            hunger += 3;
+            boredom += 6;
         }
     }
 }
