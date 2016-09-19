@@ -84,7 +84,7 @@ namespace VirtualPet
         public void Tick()
         {
             hunger += 3;
-            boredom += 6;
+            boredom += 3;
         }
     }
 }

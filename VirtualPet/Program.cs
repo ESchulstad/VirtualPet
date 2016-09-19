@@ -30,11 +30,19 @@ namespace VirtualPet
                 Console.WriteLine(" {0,0}");
                 Console.WriteLine(" ./)_)");
                 Console.WriteLine("  \" \"");
-
+                
+                
                 Console.WriteLine(owl.Name + " is a lovable owl with pink polka-dotted feathers and enjoys flying across the sky.");
+                Console.WriteLine("Do not let your owl's status reach above 40 in any categorie or your owl will die.");
 
-                //shows current status of hunger,waste, and boredom
+                //calls current status of hunger,waste, and boredom
                 owl.Status();
+
+                //if any are above 40 the loop will be broken and the game is set to quit
+                if(owl.Hunger>=40 || owl.Waste>=40 || owl.Boredom>=40)
+                {
+                    break;
+                }
 
                 //options for user to choose from to interact with pet
                 Console.WriteLine("Please take care of your pet owl. What would you like to do?");
@@ -65,18 +73,20 @@ namespace VirtualPet
                         break;
 
                     default:
-                        Console.WriteLine("How dare you not take care of your pet owl.");
+                        Console.WriteLine("How dare you ignore your pet.");
                         quit();
                         break;
                 }
 
-                //calling tick method which updates hunger and boredom
+                //calling tick method which increases hunger and boredom at the end of each turn
                 owl.Tick();
 
                 //clears current feed and new view will have current status updated
                 Console.Clear();
                 
             }
+
+            quit();
 
 
         }
@@ -85,7 +95,7 @@ namespace VirtualPet
         static void quit()
         {
             Console.WriteLine("You have neglected to take care of your virtual pet owl.");
-            Console.WriteLine("Please say goodbye forever.");
+            Console.WriteLine("Please say goodbye.");
             Environment.Exit(0);
         }
     }
